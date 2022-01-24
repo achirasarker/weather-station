@@ -1,2 +1,3 @@
 # weather-station
-Sends weather data to the ThingSpeak platform through WIfI.
+
+Collects weather data using the DHT11 sensor, then sends it to the ThingSpeak platform using an ESP8266 WiFi module.
