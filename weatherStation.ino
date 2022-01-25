@@ -4,6 +4,7 @@
 #include <DHT.h>
 #define dhtPin 5
 #define dhtType DHT11
+
 //Create a DHT object of DHT type
 DHT dht(dhtPin, dhtType);
 
@@ -34,8 +35,8 @@ void setup() {
 
 void loop() {
   int temp = dht.readTemperature();
-  int humidity - dht.readHumidity();
-  //Send data to ThingSpeak platform every 15secs
+  int humidity = dht.readHumidity();
+  //Send 1 message to ThingSpeak platform every 15secs
   if (count == 0)
   {
     //Temp data stored in field 1 
@@ -45,7 +46,7 @@ void loop() {
   else if (count == 1)
   {
     //Humidity data stored in field 2
-    ThingSpeak.writeField(myChannel, 2, hum, myKey);
+    ThingSpeak.writeField(myChannel, 2, humidity, myKey);
     count = 0;
   }
   delay(16000);
